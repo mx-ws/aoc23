@@ -1,6 +1,8 @@
 defmodule Aoc23 do
   use Application
 
+  import NimbleParsec
+
   @moduledoc """
   Documentation for `Aoc23`.
   """
