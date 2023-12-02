@@ -25,4 +25,13 @@ defmodule Aoc23 do
 
     {:ok, pid}
   end
+
+  defmodule Parser_Tag_ do
+    import NimbleParsec
+
+    defparsec(
+      :input_tag_,
+      repeat(string(""))
+    )
+  end
 end
