@@ -1,4 +1,4 @@
-defmodule Aoc23 do
+defmodule Aoc23_Tag_ do
   use Application
 
   import NimbleParsec

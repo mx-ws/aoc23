@@ -23,7 +23,6 @@ defmodule Aoc23_Tag_2 do
     {:ok, pid} = Supervisor.start_link(children, strategy: :one_for_one)
 
     fileContents = File.read!("input_tag_2.txt")
-    result = Parser_Tag_2.input_tag_2(fileContents)
     {:ok, games, _, _, _, _} = Parser_Tag_2.input_tag_2(fileContents)
 
     maxes =
