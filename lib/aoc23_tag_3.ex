@@ -154,7 +154,7 @@ defmodule Aoc23_Tag_3 do
     acc_numbers(igits, lines, new_map)
   end
 
-  defp acc_numbers([], lines, map) do
+  defp acc_numbers([], _lines, map) do
     Map.values(map)
   end
 
