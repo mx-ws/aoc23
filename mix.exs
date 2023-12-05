@@ -14,7 +14,7 @@ defmodule Aoc23.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: {Aoc23_Tag_3, []},
+      mod: {Aoc23_Tag_4, []},
       extra_applications: [:logger]
     ]
   end
