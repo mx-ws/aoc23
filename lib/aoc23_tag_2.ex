@@ -9,13 +9,7 @@ defmodule Aoc23_Tag_2 do
   alias Aoc23_Tag_2.Parser_Tag_2
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Aoc23.hello()
-      :world
-
+  start
   """
   def start(_type, _args) do
     children = []

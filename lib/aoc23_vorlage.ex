@@ -8,13 +8,7 @@ defmodule Aoc23_Tag_ do
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Aoc23.hello()
-      :world
-
+  start
   """
   def start(_type, _args) do
     children = []
