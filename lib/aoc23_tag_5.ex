@@ -91,25 +91,11 @@ defmodule Aoc23_Tag_5 do
 
   defp combine_ranges([], accum), do: accum
 
-  defp combine({from, length}, [{from_acc, length_acc} | ccum]) do
-    to = from + length - 1
-    to_acc = from_acc + length_acc - 1
-    from_in_acc = from >= from_acc - 1 && from <= to_acc + 1
-    to_in_acc = to >= from_acc - 1 && to <= to_acc + 1
-
-    acc_from_in = from_acc >= from - 1 && from_acc <= to + 1
-    acc_to_in = to_acc >= from - 1 && to_acc <= to + 1
-
-    if(
-      from_in_acc ||
-        to_in_acc ||
-        acc_from_in ||
-        acc_to_in
-    ) do
-      left = min(from, from_acc)
-      [{left, max(to, to_acc) - left + 1} | ccum]
+  defp combine({from, len}, [{from_acc, len_acc} | ccum]) do
+    if(from <= from_acc + len_acc - 1) do
+      [{from_acc, len + from - from_acc} | ccum]
     else
-      [{from_acc, length_acc} | combine({from, length}, ccum)]
+      [{from_acc, len_acc} | combine({from, len}, ccum)]
     end
   end
 
