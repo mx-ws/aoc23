@@ -1,0 +1,20 @@
+   0     1     2       3     4     5       6     7     8       9     10    11      12    13    14
+00 empty empty empty | empty empty empty | empty empty empty | empty empty empty | empty empty empty
+01 empty empty empty | empty empty empty | empty empty empty | empty empty empty | empty empty empty
+02 empty empty empty | empty empty empty | empty empty empty | empty empty empty | empty empty empty
+   -------------------------------------------------------------------------------------------------
+03 empty empty empty | empty empty empty | empty empty empty | empty empty empty | empty empty empty
+04 empty empty empty | empty :pipe :pipe | :pipe :pipe :pipe | :pipe :pipe empty | empty empty empty
+05 empty empty empty | empty :pipe empty | empty empty empty | empty :pipe empty | empty empty empty
+   -------------------------------------------------------------------------------------------------
+06 empty empty empty | empty :pipe empty | empty empty empty | empty :pipe empty | empty empty empty
+07 empty empty empty | empty :pipe empty | empty empty empty | empty :pipe empty | empty empty empty
+08 empty empty empty | empty :pipe empty | empty empty empty | empty :pipe empty | empty empty empty
+   -------------------------------------------------------------------------------------------------
+09 empty empty empty | empty :pipe empty | empty empty empty | empty :pipe empty | empty empty empty
+10 empty empty empty | empty :pipe :pipe | :pipe :pipe :pipe | :pipe :pipe empty | empty empty empty
+11 empty empty empty | empty empty empty | empty empty empty | empty empty empty | empty empty empty
+   -------------------------------------------------------------------------------------------------
+12 empty empty empty | empty empty empty | empty empty empty | empty empty empty | empty empty empty
+13 empty empty empty | empty empty empty | empty empty empty | empty empty empty | empty empty empty
+14 empty empty empty | empty empty empty | empty empty empty | empty empty empty | empty empty empty
