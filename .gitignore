@@ -24,3 +24,6 @@ aoc23-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# aoc input
+input_tag_10.txt
