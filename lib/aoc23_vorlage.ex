@@ -15,6 +15,8 @@ defmodule Aoc23_Tag_ do
 
     {:ok, pid} = Supervisor.start_link(children, strategy: :one_for_one)
 
+    fileContents = File.read!("input_tag_4.txt")
+    {:ok, data, "", _, _, _} = Parser_Tag_.input_tag_(fileContents)
     # do Stuff
 
     {:ok, pid}
