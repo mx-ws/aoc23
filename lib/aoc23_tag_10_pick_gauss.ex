@@ -53,9 +53,7 @@ defmodule Aoc23_Tag_10_Pick_Gauss do
       |> abs()
       |> dbg()
 
-    inner_points = (div(twice_the_area - n, 2) + 1) |> dbg()
-
-    IO.inspect(numbered_pipes)
+    (div(twice_the_area - n, 2) + 1) |> dbg()
 
     {:ok, pid}
   end
