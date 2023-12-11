@@ -19,14 +19,6 @@ defmodule Aoc23_Tag_5 do
     fileContents = File.read!("input_tag_5.txt")
     {:ok, [seeds, maps], "", _, _, _} = Parser_Tag_5.input_tag_5(fileContents)
 
-    maps
-    |> (fn maps ->
-          case maps do
-            [m | _] -> look_up!(m, 73)
-          end
-        end).()
-    |> dbg()
-
     seeds
     |> Enum.map(&sequential_look_up(&1, maps))
     |> Enum.min()
@@ -35,14 +27,6 @@ defmodule Aoc23_Tag_5 do
     look_up_all_seeds(seeds, maps, :infinity) |> dbg()
 
     {:ok, pid}
-  end
-
-  defp seeds_from_ranges(seeds), do: seeds_from_ranges_acc(seeds, [])
-  defp seeds_from_ranges_acc([s | [0 | eds]], acc), do: seeds_from_ranges_acc(eds, acc)
-  defp seeds_from_ranges_acc([], acc), do: acc
-
-  defp seeds_from_ranges_acc([s | [e | eds]], acc) do
-    seeds_from_ranges_acc([s | [e - 1 | eds]], [s | acc])
   end
 
   defp sequential_look_up(seed, [m | aps]) do
@@ -56,6 +40,8 @@ defmodule Aoc23_Tag_5 do
 
   defp sequential_look_up(seed, []), do: seed
 
+  defp look_up_all_seeds([], _maps, current_min), do: current_min
+
   defp look_up_all_seeds([s | [e | edrange]], maps, current_min) do
     all_look_ups_min =
       List.foldl(maps, [{s, e}], fn m, ses ->
@@ -67,7 +53,7 @@ defmodule Aoc23_Tag_5 do
           look_up_range(m, [se], [])
         end)
         |> List.flatten()
-        |> Enum.sort_by(fn {from, to} -> from end)
+        |> Enum.sort_by(fn {from, _len} -> from end)
         |> (fn rs ->
               c = combine_ranges(rs, [])
 
@@ -75,7 +61,7 @@ defmodule Aoc23_Tag_5 do
               c
             end).()
       end)
-      |> Enum.map(fn {from, _to} -> from end)
+      |> Enum.map(fn {from, _len} -> from end)
       |> Enum.min()
       |> IO.inspect()
 
@@ -100,8 +86,6 @@ defmodule Aoc23_Tag_5 do
   end
 
   defp combine(r, []), do: [r]
-
-  defp look_up_all_seeds([], _maps, current_min), do: current_min
 
   def look_up_range({map_name, [{value, current_key, range} | ranges]}, seed_ranges, acc) do
     look_up_further =

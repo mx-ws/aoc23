@@ -48,9 +48,10 @@ defmodule Aoc23_Tag_10 do
     {:ok, pid}
   end
 
+  def mark_outer(map, left_to_check, marked \\ [])
   def mark_outer(_, [], marked), do: marked
 
-  def mark_outer(map, [l | eft_to_check], marked \\ []) do
+  def mark_outer(map, [l | eft_to_check], marked) do
     case map |> Map.get(l) do
       :empty ->
         if marked |> Enum.any?(fn mark -> mark == l end) do

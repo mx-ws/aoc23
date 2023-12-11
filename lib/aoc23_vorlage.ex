@@ -6,6 +6,7 @@ defmodule Aoc23_Tag_ do
   @moduledoc """
   Documentation for `Aoc23`.
   """
+  alias Aoc23_Tag_.Parser_Tag_
 
   @doc """
   start
@@ -18,6 +19,7 @@ defmodule Aoc23_Tag_ do
     fileContents = File.read!("input_tag_4.txt")
     {:ok, data, "", _, _, _} = Parser_Tag_.input_tag_(fileContents)
     # do Stuff
+    data |> dbg()
 
     {:ok, pid}
   end
