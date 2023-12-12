@@ -19,19 +19,22 @@ defmodule Aoc23_Tag_10_Pick_Gauss do
     fileContents = File.read!("input_tag_10.txt")
     {:ok, t, "", _, _, _} = Parser_Tag_10.input_tag_10(fileContents)
 
-    {begin_j, begin_k} = find_beginning(t) |> dbg()
+    t_map =
+      t
+      |> Enum.with_index()
+      |> List.foldl(%{}, fn {row, j}, map ->
+        row
+        |> Enum.with_index()
+        |> List.foldl(map, fn {cell, k}, map ->
+          map |> Map.put({j, k}, cell)
+        end)
+      end)
 
-    pipes_with_steps =
-      find_adjacent(t, [{begin_j, begin_k, 0}], %{{begin_j, begin_k} => 0})
-      |> dbg()
+    {{begin_j, begin_k}, _} = t_map |> Enum.find(fn {_, value} -> value == :cross end)
 
     numbered_pipes =
-      pipes_with_steps
-      |> Map.keys()
-      |> Enum.map(fn {j, k} -> {{j, k}, coord(t, j, k)} end)
-      |> Map.new()
+      t_map
       |> enumerate_pipes(begin_j, begin_k, 0, %{})
-      |> dbg()
 
     n = numbered_pipes |> map_size()
 
@@ -51,7 +54,6 @@ defmodule Aoc23_Tag_10_Pick_Gauss do
         acc + x_i * (y_ip1 - y_im1)
       end)
       |> abs()
-      |> dbg()
 
     (div(twice_the_area - n, 2) + 1) |> dbg()
 
